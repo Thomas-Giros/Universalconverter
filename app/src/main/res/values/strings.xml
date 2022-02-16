@@ -2,12 +2,37 @@
     <string name="app_name">Universal converter</string>
     <string name="i_want_to_convert">I want to convert</string>
     <string name="_0_00">0.00</string>
-    <string name="fahrenheit">fahrenheit</string>
     <string name="unit">unit</string>
     <string name="to">To</string>
-    <string name="unittoconvertfrom">unitToConvertFrom</string>
     <string name="unit_to_convert_to">unit to convert to</string>
     <string name="unit_to_convert_from">unit to convert from</string>
     <string name="convert">Convert</string>
     <string name="result">Result</string>
+
+    <string-array name="Units">
+        <item>gigameter</item>
+        <item>megameter</item>
+        <item>kilometer</item>
+        <item>hectometer</item>
+        <item>dekameter</item>
+        <item>meter</item>
+        <item>decimeter</item>
+        <item>centimeter</item>
+        <item>millimeter</item>
+        <item>micrometer</item>
+        <item>nanometer</item>
+
+        <item>mile</item>
+        <item>furlong</item>
+        <item>chain</item>
+        <item>rod</item>
+        <item>pole</item>
+        <item>perch</item>
+        <item>fathom</item>
+        <item>yard</item>
+        <item>foot</item>
+        <item>hand</item>
+        <item>inch</item>
+
+    </string-array>
 </resources>
