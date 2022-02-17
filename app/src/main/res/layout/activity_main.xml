@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".MainActivity">
 
     <TextView
@@ -18,7 +24,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.11"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/Widget.UniversalConverter.TextView"/>
 
     <EditText
         android:id="@+id/initialValue"
@@ -34,7 +41,8 @@
         android:textSize="28sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:ignore="TextContrastCheck" />
+        tools:ignore="TextContrastCheck"
+        style="@style/Widget.UniversalConverter.TextView"/>
 
     <TextView
         android:id="@+id/textView2"
@@ -45,7 +53,8 @@
         android:text="@string/to"
         android:textSize="34sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/initialValue" />
+        app:layout_constraintTop_toBottomOf="@+id/initialValue"
+        style="@style/Widget.UniversalConverter.TextView"/>
 
     <Button
         android:id="@+id/button"
@@ -56,19 +65,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        />
 
     <TextView
-        android:id="@+id/Result"
+        android:id="@+id/result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="@string/result"
+        android:layout_marginTop="16dp"
+        tools:hint="@string/result"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button"
-        tools:ignore="TextContrastCheck" />
+        tools:ignore="TextContrastCheck"
+        style="@style/Widget.UniversalConverter.TextView"/>
 
     <AutoCompleteTextView
         android:id="@+id/unit_to_convert_from"
@@ -78,7 +89,8 @@
         android:hint="@string/unit_to_convert_from"
         app:layout_constraintStart_toEndOf="@+id/initialValue"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:ignore="TextContrastCheck" />
+        tools:ignore="TextContrastCheck"
+        style="@style/Widget.UniversalConverter.TextView"/>
 
     <AutoCompleteTextView
         android:id="@+id/unit_to_convert_to"
@@ -91,6 +103,9 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/initialValue"
-        tools:ignore="TextContrastCheck" />
+        tools:ignore="TextContrastCheck"
+        style="@style/Widget.UniversalConverter.TextView"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

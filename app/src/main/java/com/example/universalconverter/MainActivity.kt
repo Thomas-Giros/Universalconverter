@@ -4,45 +4,47 @@ import android.R.layout.simple_list_item_1
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-
+import com.example.universalconverter.databinding.ActivityMainBinding
+import com.google.android.material.textfield.TextInputEditText
 
 
 private var coefficient: Double = 1.0
 private var units = arrayOf<String>()
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
 
         units = resources.getStringArray(R.array.Units)
-        val unitToConvertFrom = findViewById<AutoCompleteTextView>(R.id.unit_to_convert_from)
-        val unitToConvertTo = findViewById<AutoCompleteTextView>(R.id.unit_to_convert_to)
 
         val adapter = ArrayAdapter(this,
             simple_list_item_1, units)
 
-        unitToConvertFrom.setAdapter(adapter)
-        unitToConvertTo.setAdapter(adapter)
 
-        val convertButton = findViewById<Button>(R.id.button)
-        val initialValue = findViewById<TextView>(R.id.initialValue)
-        val resultValue = findViewById<TextView>(R.id.Result)
+        val unitsToConvertFromView = findViewById<AutoCompleteTextView>(R.id.unit_to_convert_from)
+        val unitsToConvertFromTo = findViewById<AutoCompleteTextView>(R.id.unit_to_convert_to)
 
-        convertButton.setOnClickListener {
-            convertAction(unitToConvertFrom.text.toString(),unitToConvertTo.text.toString())
+        unitsToConvertFromView.setAdapter(adapter)
+        unitsToConvertFromTo.setAdapter(adapter)
 
-            val result: Double = initialValue.text.toString().toDouble() * coefficient
-            resultValue.text = result.toString()
+        binding.button.setOnClickListener {
+            convertAction()
+
+            val result: Double = binding.initialValue.text.toString().toDouble() * coefficient
+            binding.result.text = result.toString()
         }
 
     }
 
-    private fun convertAction(unitToConvertFromString: String, unitToConvertToString: String) {
+    private fun convertAction() {
         // On s'assure que les unitées choisies existent
-        if (!units.contains(unitToConvertFromString)
-            || !units.contains(unitToConvertToString))
+        if (!units.contains(binding.unitToConvertFrom.text.toString())
+            || !units.contains(binding.unitToConvertTo.text.toString()))
         {
             Toast.makeText(applicationContext,"Invalid Unit ! Choose from proposed",Toast.LENGTH_SHORT).show()
         }
@@ -50,15 +52,15 @@ class MainActivity : AppCompatActivity() {
         {
             // on initialise le coefficient à 1. et ensuite on le modifia via ConvertCoefficient
             coefficient = 1.0
-            convertCoefficient(unitToConvertFromString,unitToConvertToString)
+            convertCoefficient()
         }
     }
 
-    fun convertCoefficient(convertFromString: String, convertToString: String) {
+    fun convertCoefficient() {
 
         // on utilise une conversion au metre pour les unités metrique pour ensuite convertir
         // dans n'importe quelle distance a partir du metre
-        when(convertFromString)
+        when(binding.unitToConvertFrom.text.toString())
         {
             "gigameter" -> coefficient *= 1000000000.0
             "megameter" -> coefficient *= 1000000.0
@@ -87,7 +89,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         // A partir de la conversion en metre on peut convertir dans les autres unités de distance
-        when(convertToString)
+        when(binding.unitToConvertTo.text.toString())
         {
             "gigameter" -> coefficient *= 0.000000001
             "megameter" -> coefficient *= 0.000001
