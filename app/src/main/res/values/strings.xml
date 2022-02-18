@@ -9,7 +9,7 @@
     <string name="convert">Convert</string>
     <string name="result">Result</string>
 
-    <string-array name="Units">
+    <string-array name="distance_Units">
         <item>gigameter</item>
         <item>megameter</item>
         <item>kilometer</item>
@@ -33,6 +33,51 @@
         <item>foot</item>
         <item>hand</item>
         <item>inch</item>
+    </string-array>
 
+    <string-array name="volume_Units">
+        <item>cubic kilometer</item>
+        <item>cubic hectometer</item>
+        <item>cubic dekameter</item>
+        <item>cubic meter</item>
+        <item>cubic decimeter</item>
+        <item>cubic centimeter</item>
+        <item>cubic millimeter</item>
+
+        <item>gigaliter</item>
+        <item>megaliter</item>
+        <item>kiloliter</item>
+        <item>hectoliter</item>
+        <item>dekaliter</item>
+        <item>liter</item>
+        <item>deciliter</item>
+        <item>centiliter</item>
+        <item>milliliter</item>
+        <item>microliter</item>
+        <item>stere</item>
+
+        <item>cubic mile</item>
+        <item>acre foot</item>
+        <item>cubic yard</item>
+        <item>cubic foot</item>
+        <item>board foot</item>
+        <item>cubic inch</item>
+
+
+        <item>barrel USbbl</item>
+        <item>barrel oilbbl</item>
+        <item>beer barrel</item>
+        <item>US gallon</item>
+        <item>quart</item>
+        <item>pint</item>
+        <item>gill</item>
+        <item>fluid ounce</item>
+        <item>cup</item>
+        <item>tablespoon</item>
+        <item>teaspoon</item>
+
+    </string-array>
+
+    <string-array name="surface_Units">
     </string-array>
 </resources>
